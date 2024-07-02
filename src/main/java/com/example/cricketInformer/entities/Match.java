@@ -25,6 +25,8 @@ public class Match {
     private String liveText;
     private String matchLink;
     private String textComplete;
+    private String battingTeam;
+    private String battingTeamScore;
 
     @Enumerated
     private MatchStatus status;
