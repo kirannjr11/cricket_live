@@ -19,19 +19,26 @@ $(document).ready(function() {
         pointTableContainer.empty(); // Clear any existing content
 
         // Assuming pointTable is an array of objects with necessary fields
-        let tableHtml = '<table>';
+        let tableHtml = '<table class="point-table">';
         tableHtml += '<tr><th>Team</th><th>Played</th><th>Won</th><th>Lost</th><th>Tied</th><th>NR</th><th>Points</th><th>NRR</th></tr>';
 
         pointTable.forEach(team => {
-            tableHtml += `<tr>
-                <td>${team.name}</td>
-                <td>${team.played}</td>
-                <td>${team.won}</td>
-                <td>${team.lost}</td>
-                <td>${team.tied}</td>
-                <td>${team.nr}</td>
-                <td>${team.points}</td>
-                <td>${team.nrr}</td>
+            let rowClass = '';
+            if (team.points >= 14) {
+                rowClass = 'qualified';
+            } else {
+                rowClass = 'eliminated';
+            }
+
+            tableHtml += `<tr class="${rowClass}">
+                <td>${team.Name}</td>
+                <td>${team.Mat}</td>
+                <td>${team.Won}</td>
+                <td>${team.Lost}</td>
+                <td>${team.Tied}</td>
+                <td>${team.NR}</td>
+                <td>${team.Pts}</td>
+                <td>${team.NRR}</td>
             </tr>`;
         });
 
@@ -40,17 +47,6 @@ $(document).ready(function() {
         pointTableContainer.append(tableHtml);
         pointTableContainer.show(); // Display the point table container
 
-
         $('#matches').hide();
     }
-
-    $(document).ready(function() {
-
-        $('#point-table-link').click(function(e) {
-            e.preventDefault();
-            $('.point-table').toggle();
-        });
-    });
-
-
 });
