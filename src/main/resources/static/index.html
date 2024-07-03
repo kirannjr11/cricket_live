@@ -9,10 +9,26 @@
 <body>
 <div class="container">
     <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h2>CrickInformer</h2>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Live Score</a></li>
+                <li><a href="#">All Matches</a></li>
+                <li><a href="#" id="point-table-link">CWC2024 Point Table</a></li>
+                <li><a href="#">Home</a></li>
+            </ul>
+            <button class="refresh-button">Refresh</button>
+        </nav>
         <h1>Live Score</h1>
     </header>
     <main>
         <div id="matches" class="matches-container">
+            <!-- Match cards will be injected here by JavaScript -->
+        </div>
+
+        <div id="point-table" class="matches-container">
             <!-- Match cards will be injected here by JavaScript -->
         </div>
     </main>
@@ -20,5 +36,7 @@
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="script.js"></script>
+<script src="refresh.js"></script>
+<script src="point.js"></script>
 </body>
 </html>

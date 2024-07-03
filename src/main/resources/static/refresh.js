@@ -31,13 +31,16 @@ $(document).ready(function() {
             `;
             matchesContainer.append(matchCard);
         });
-         $('#matches').show();
-         $('#point-table').hide();
     }
 
-
+    // Initial fetch of live matches
     fetchLiveMatches();
 
+    // Set interval to fetch live matches every minute
+    setInterval(fetchLiveMatches, 60000);
 
-    setInterval(fetchLiveMatches, 30000);
+    // Add event listener to the refresh button
+    $('.refresh-button').click(function() {
+        fetchLiveMatches();
+    });
 });
