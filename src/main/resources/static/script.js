@@ -40,4 +40,9 @@ $(document).ready(function() {
 
 
     setInterval(fetchLiveMatches, 30000);
+
+    $('#liveScore').click(function(event) {
+        event.preventDefault();
+        fetchLiveMatches();
+    });
 });
